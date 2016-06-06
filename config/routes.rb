@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
+  namespace :settings do
+  get 'users/new'
+  end
+
   scope "(:locale)", locale: /en|ru/ do
-    root                          'main_pages#home'
-    get     '/company',           to: 'main_pages#company'
-    get     '/signup',            to: 'signup_users#new'
-    get     '/companyes/signup',  to: 'banks#signup'
-    get     '/login',             to: 'sessions#new'
-    delete  '/logout',            to: 'sessions#destroy'
+    root                     'main_pages#home'
+    get     '/company',  to: 'main_pages#company'
+    get     '/signup',   to: 'signup_users#new'
+    get     '/login',    to: 'sessions#new'
+    delete  '/logout',   to: 'sessions#destroy'
 
     resources :signup_users,  only: [:new, :create]
     resources :sessions,      only: [:new, :create, :destroy]

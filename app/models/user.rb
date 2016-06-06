@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   
   attr_accessor :remember_token
   
-  has_many :bank_users
-  has_many :banks, through: :bank_users
+  has_many :company_users
+  has_many :companyes, through: :company_users
   has_secure_password
   has_attached_file :avatar, 
     { 
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role, if: :new_record?
   
   enum gender: [:male, :female, :other]
-  enum role: [:admin, :bank_user, :user]
+  enum role: [:admin, :company_user, :user]
   
   class << self
     
