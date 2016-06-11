@@ -1,0 +1,20 @@
+// Cards
+
+.card {
+//   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+//  border: 0;
+}
+
+.card-full {
+  border-top: $border-width solid $navbar-main-border-color;
+  border-bottom: $border-width solid $navbar-main-border-color;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  margin-left: -.9375rem;
+  margin-right: -.9375rem;
+}
+
+.card-content {
+  padding-top: 20px;
+}

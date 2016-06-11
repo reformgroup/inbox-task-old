@@ -18,6 +18,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "sidebar";
+@import "card";
+@import "pagination";
+@import "table";
+@import "forms";
 
 // Mixins, variables, etc.
 
@@ -60,17 +64,6 @@ img.avatar.avatar-thumb, div.avatar.avatar-thumb {
   border-bottom: $border-width solid $navbar-main-border-color;
   .nav-user > .nav-link {
     padding: 0rem;
-  }
-}
-
-// Sidebar
-
-.sidebar {
-  .sidebar-title {
-    padding-bottom: 0.75rem; // 12px
-  }
-  .sidebar-item {
-    padding: 0.25rem 0rem 0.25rem 0rem; // 4px
   }
 }
 
@@ -134,8 +127,10 @@ html {
 }
 
 body {
-	padding-top: 70px; /* Margin top by navbar height */
   background-color: $gray-lightest;
+  .content {
+	  padding-top: 70px; /* Margin top by navbar height */
+  }
 }
 
 .display-block {
@@ -186,21 +181,6 @@ select.date-select {
   color: $footer-dark-color;
 }
 
-// Pagination
-
-.pagination-block {
-	text-align: center;
-	div.pagination {
-		margin-bottom: 0px;
-	}
-	ul.pagination {
-		margin-bottom: 10px;
-	}
-	.pagination-info {
-		margin-bottom: 20px;
-	}
-}
-
 //Dropdowns
  
 .dropdown.default-link-style {
@@ -220,20 +200,4 @@ select.date-select {
   .dropdown-item.current {
     color: $brand-primary;
   }
-}
-
-// Tables
-//
-// Vertical align
-.table.v-align tbody > tr > td,
-.table.v-align tbody > tr > td > .row,
-.table.v-align tbody > tr > td > .row > div {
-  vertical-align: middle;
-}
-
-// Cards
-
-.card {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.12);
-  border: 0px;
 }

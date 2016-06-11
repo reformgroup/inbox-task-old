@@ -70,11 +70,11 @@ module ApplicationHelper
   end
   
   def default_mix_small_col_class
-    "col-lg-3 col-xl-3"
+    "col-lg-3 col-xl-2"
   end
   
   def default_mix_large_col_class
-    "col-lg-9 col-xl-9"
+    "col-lg-9 col-xl-10"
   end
   
   def error_messages(object, method = nil)

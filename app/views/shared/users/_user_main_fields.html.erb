@@ -1,0 +1,58 @@
+
+<div class="form-group row">
+  <%= f.label :last_name, class: "#{default_mix_small_col_class} form-control-label" %>
+  <div class="<%= default_mix_large_col_class %>">
+    <%= f.text_field :last_name, class: "form-control" %>
+    <%= error_messages f.object, :last_name %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :first_name, class: "#{default_mix_small_col_class} form-control-label" %>
+  <div class="<%= default_mix_large_col_class %>">
+    <%= f.text_field :first_name, class: "form-control" %>
+    <%= error_messages f.object, :first_name %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :middle_name, class: "#{default_mix_small_col_class} form-control-label" %>
+  <div class="<%= default_mix_large_col_class %>">
+    <%= f.text_field :middle_name, class: "form-control" %>
+    <%= error_messages f.object, :middle_name %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :email, class: "#{default_mix_small_col_class} form-control-label" %>
+  <div class="<%= default_mix_large_col_class %>">
+    <%= f.text_field :email, class: "form-control" %>
+    <%= error_messages f.object, :email %>
+  </div>
+</div>
+<div class="form-group row">
+  <%= f.label :birth_date, class: "#{default_mix_small_col_class} form-control-label" %>
+  <div class="<%= default_mix_large_col_class %>">
+  	<%= f.date_select :birth_date, { start_year: User.not_younger.year, end_year: User.not_older.year, prompt: true }, class: "form-control c-select date-select" %>
+  	<%= error_messages f.object, :birth_date %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="<%= default_mix_small_col_class %>">
+    <%= User.human_attribute_name "gender" %>
+  </div>
+  <div class="<%= default_mix_large_col_class %>">
+    <label class="radio-inline c-input c-radio">
+      <%= f.radio_button :gender, :male %>
+      <span class="c-indicator"></span>
+    	<%= User.human_attribute_name "gender.male" %>
+    </label>
+    <label class="radio-inline c-input c-radio">
+      <%= f.radio_button :gender, :female %>
+      <span class="c-indicator"></span>
+    	<%= User.human_attribute_name "gender.female" %>
+    </label>
+    <label class="radio-inline c-input c-radio">
+      <%= f.radio_button :gender, :other %>
+      <span class="c-indicator"></span>
+    	<%= User.human_attribute_name "gender.other" %>
+    </label>
+  </div>
+</div>

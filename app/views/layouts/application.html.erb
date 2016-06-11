@@ -9,11 +9,13 @@
 </head>
 <body>
   <%= render 'layouts/base_header' %>
-  <div class="container">
+  <div class="container content">
     <div class="row">
       <div class="col-<%= default_grid_system %>-12">
         <%= render 'layouts/flash' %>
       </div>
+    </div>
+    <div class="row">
       <%= yield %>
     </div>
     

@@ -7,8 +7,8 @@
 
 /* Toggle Styles */
 
-.container {
-  padding-top: 15px;
+.sidebar-content {
+  padding-top: 20px; /* Margin top by navbar height */
 }
 
 #wrapper {
@@ -20,18 +20,18 @@
 }
 
 #wrapper.toggled {
-  padding-left: 250px;
+  padding-left: $sidebar-width;
 }
 
 #sidebar-wrapper {
   z-index: 1000;
   position: fixed;
-  left: 250px;
+  left: $sidebar-width;
   width: 0;
   height: 100%;
-  margin-left: -250px;
+  margin-left: -$sidebar-width;
   overflow-y: auto;
-  background: #34495e;
+  background: $gray;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -39,7 +39,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-  width: 250px;
+  width: $sidebar-width;
 }
 
 #page-content-wrapper {
@@ -49,7 +49,7 @@
 
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
-  margin-right: -250px;
+  margin-right: -$sidebar-width;
 }
 
 
@@ -58,18 +58,19 @@
 .sidebar-nav {
   position: absolute;
   top: 0;
-  width: 250px;
+  width: $sidebar-width;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .sidebar-nav li {
-  text-indent: 20px;
+//  text-indent: 20px;
   line-height: 40px;
 }
 
 .sidebar-nav li a {
+  padding-left: 20px;
   display: block;
   text-decoration: none;
   color: #ecf0f1;
@@ -78,7 +79,7 @@
 .sidebar-nav li a:hover {
   text-decoration: none;
   color: #fff;
-  background: #2c3e50;
+  background: $gray-dark;
 }
 
 .sidebar-nav li a:active,
@@ -103,13 +104,13 @@
 
 @media(min-width:768px) {
   #wrapper {
-    padding-left: 250px;
+    padding-left: $sidebar-width;
   }
   #wrapper.toggled {
     padding-left: 0;
   }
   #sidebar-wrapper {
-    width: 250px;
+    width: $sidebar-width;
   }
   #wrapper.toggled #sidebar-wrapper {
     width: 0;
