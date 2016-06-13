@@ -1,10 +1,13 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
     <li class="sidebar-brand">
-      <a href="#">Workspace</a>
+      <a href="#"><%= t ".title" %></a>
     </li>
     <li>
-      <%= link_to icon("users", "Users", class: "fa-fw"), settings_users_path %>
+      <%= link_to icon("users", "Users", class: "fa-fw"), users_path %>
+    </li>
+    <li>
+      <%= link_to icon("building-o", "Companies", class: "fa-fw"), companies_path %>
     </li>
   </ul>
 </div>

@@ -1,12 +1,11 @@
 <div class="<%= default_col_class %>">
-  <%= render "shared/users/user_avatar", f: f %>
-</div><!-- /.col -->
-
-<div class="<%= default_col_class %>">
-  <%= render "shared/users/user_main_fields", f: f %>
-  <% unless action_name == "edit" %>
-    <p class="text-danger"><%= t ".password_note" %></p>
-  <% end %>
+  <div class="form-group row">
+    <%= f.label :name, class: "#{default_mix_small_col_class} form-control-label" %>
+    <div class="<%= default_mix_large_col_class %>">
+      <%= f.text_field :name, class: "form-control" %>
+      <%= error_messages f.object, :name %>
+    </div>
+  </div>
 </div><!-- /.col -->
 <div class="<%= default_col_class %>">
   <hr>
@@ -15,10 +14,10 @@
     <button type="button" class="btn btn-danger-outline" data-toggle="modal" data-target="#modal">
       <%= icon "trash-o", t(".confirm.delete.button") %>
     </button>
-    <%= render partial: "shared/modals/modal", locals: {  
+    <%= render partial: "layouts/modal", locals: {  
     title: t(".confirm.delete.title"),
     body: t(".confirm.delete.body"),
-    ok_link: link_to(t("buttons.delete"), settings_user_path(@user), method: :delete, class: "btn btn-danger"),
+    ok_link: link_to(t("buttons.delete"), company_path(@company), method: :delete, class: "btn btn-danger"),
     cancel_link_text: t("buttons.cancel") } %>
   <% end %>
 </div><!-- /.col -->

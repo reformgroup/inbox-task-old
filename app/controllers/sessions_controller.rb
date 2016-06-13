@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       case current_role
-      when "admin"        then redirect_to [:settings, user]
-      when "company_user" then redirect_to [:settings, user]
-      when "user"         then redirect_to [:settings, user]
+      when "admin"        then redirect_to user
+      when "company_user" then redirect_to user
+      when "user"         then redirect_to user
       end
       # redirect_back_or user
     else

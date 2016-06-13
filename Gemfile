@@ -20,13 +20,7 @@ gem 'validates_timeliness',   '~> 3.0.14'
 gem 'will_paginate'
 gem 'gretel'
 
-group :development, :test do
-  gem 'annotate',           '~> 2.6'
-  gem 'byebug'
-  gem 'factory_girl_rails', '~> 4.5.0'
-  gem 'faker',              '~> 1.5'
-  gem 'rspec-rails',        '~> 3.3'
-  gem 'spring'
+group :development do
   gem 'web-console',        '~> 2.2'
 end
 
@@ -34,4 +28,13 @@ group :test do
   gem 'capybara',           '~> 2.5'
   gem 'minitest'
   gem 'selenium-webdriver', '~> 2.48'
+end
+
+group :development, :test do
+  gem 'annotate',           '~> 2.6'
+  gem 'byebug'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'faker',              '~> 1.5'
+  gem 'rspec-rails',        '~> 3.3'
+  gem 'spring'
 end

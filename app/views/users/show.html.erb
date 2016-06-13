@@ -11,18 +11,24 @@
         </div>
         <h2 class="text-xs-center"><%= @user.full_name %></h2>
       </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="row">
       <div class="<%= default_mix_small_col_class %>">
         <span class="text-muted"><%= User.human_attribute_name "email" %>
       </div><!-- /.col -->
       <div class="<%= default_mix_large_col_class %>">
         <%= mail_to @user.email, nil, subject: app_name %>
       </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="row">
       <div class="<%= default_mix_small_col_class %>">
         <span class="text-muted"><%= User.human_attribute_name "birth_date" %>
       </div><!-- /.col -->
       <div class="<%= default_mix_large_col_class %>">
         <%= l @user.birth_date %> (<%= @user.age %>)
       </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="row">
       <div class="<%= default_mix_small_col_class %>">
         <span class="text-muted"><%= User.human_attribute_name "gender" %>
       </div><!-- /.col -->
@@ -33,7 +39,7 @@
     <hr>
     <div class="row">
       <div class="<%= default_col_class %>">
-        <%= link_to icon("pencil", t("buttons.edit")), edit_settings_user_path, { class: "btn btn-primary", role: "button" } %>
+        <%= link_to icon("pencil", t("buttons.edit")), edit_user_path, { class: "btn btn-primary", role: "button" } %>
       </div><!-- /.col -->
     </div><!-- /.row -->
   </div><!-- /.card-block -->

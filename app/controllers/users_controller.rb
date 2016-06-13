@@ -1,4 +1,4 @@
-class Settings::UsersController < ApplicationController
+class UsersController < ApplicationController
   
   before_action :logged_in_user
   before_action :correct_role
@@ -26,7 +26,7 @@ class Settings::UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t ".flash.success.message"
-      redirect_to [:settings, @user]
+      redirect_to @user
     else
       render "new"
     end
@@ -36,7 +36,7 @@ class Settings::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
       flash[:success] = t ".flash.success.message"
-      redirect_to [:settings, @user]
+      redirect_to @user
     else
       render "edit"
     end
@@ -46,7 +46,7 @@ class Settings::UsersController < ApplicationController
     @user = User.find params[:id]
     if @user.destroy
       flash[:success] = t ".flash.success.message"
-      redirect_to settings_users_path
+      redirect_to users_path
     end
   end
   

@@ -9,7 +9,7 @@ class SignupUsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = t ".flash.success.message"
-      redirect_to [:settings, @user]
+      redirect_to @user
     else
       render "new"
     end

@@ -1,0 +1,13 @@
+<% provide :title, @user.short_name %>
+
+<p><%= t ".title" %></p>
+
+<div class="card card-full card-content">
+  <div class="card-block">
+    <div class="row">
+      <%= form_for(@user) do |f| %>
+      <%= render "user", f: f %>
+      <% end %>
+    </div><!-- /.row -->
+  </div><!-- /.card-block -->
+</div><!-- /.card -->

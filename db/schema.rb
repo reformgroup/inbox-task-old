@@ -17,7 +17,15 @@ ActiveRecord::Schema.define(version: 20160611113049) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.integer  "deleter_id"
   end
+
+  add_index "companies", ["creator_id"], name: "index_companies_on_creator_id"
+  add_index "companies", ["deleter_id"], name: "index_companies_on_deleter_id"
+  add_index "companies", ["updater_id"], name: "index_companies_on_updater_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "last_name",           null: false
