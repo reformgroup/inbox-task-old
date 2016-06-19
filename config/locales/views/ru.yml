@@ -61,11 +61,12 @@ ru:
       language: "Язык"
       signup: "Регистрация"
       login: "Войти"
-      logout: "Выйти"
     sidebar_menu:
       title: "Workspace"
       profile: "Мой профиль"
       users: "Пользователи"
+    user_menu:
+      logout: "Выйти"
   users:
     user_avatar:
       edit_avatar: "Изменить фото"

@@ -1,3 +1,29 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                  :integer          not null, primary key
+#  last_name           :string           not null
+#  first_name          :string           not null
+#  middle_name         :string
+#  email               :string           not null
+#  gender              :integer          not null
+#  birth_date          :date             not null
+#  password_digest     :string           not null
+#  remember_digest     :string
+#  role                :integer          not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  deleted_at          :datetime
+#  creator_id          :integer
+#  updater_id          :integer
+#  deleter_id          :integer
+#
+
 class User < ActiveRecord::Base
   
   include Searchable
@@ -24,24 +50,24 @@ class User < ActiveRecord::Base
       hash_data: AVATAR_PATH,
       hash_secret: "A13S4Dtu54y5g63d363sa3JH30Ff9dyH56lih6JguyHY736crtyf45dx"
     }
+
+  enum gender: [:male, :female, :other]
+  enum role: [:admin, :company_user, :user]
      
   validates :last_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :first_name, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :middle_name, length: { maximum: 50 }, format: { with: VALID_NAME_REGEX }
-  validates :gender, presence: true, length: { maximum: 6 }
-  validates_date :birth_date, presence: true, on_or_before: lambda { User.not_younger }, on_or_after: lambda { User.not_older }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+  validates :gender, presence: true, inclusion: { in: User.genders.keys }
+  validates_date :birth_date, presence: true, on_or_before: lambda { User.not_younger }, on_or_after: lambda { User.not_older }
   validates :password, presence: true, length: { minimum: 6 }, if: :password
   validates :password_confirmation, presence: true, if: :password_confirmation
-  validates :role, presence: true, if: :role
+  validates :role, presence: true, inclusion: { in: User.roles.keys }, if: :role
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   before_save { email.downcase! }
   before_save :set_name
   after_initialize :set_default_role, if: :new_record?
-  
-  enum gender: [:male, :female, :other]
-  enum role: [:admin, :company_user, :user]
   
   class << self
     
