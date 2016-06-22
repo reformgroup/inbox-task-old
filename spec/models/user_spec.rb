@@ -145,7 +145,7 @@ RSpec.describe User, type: :model do
     end
   end
   
-  context "email address with mixed case" do
+  context "when email address with mixed case" do
     let(:mixed_case_email) { "Foo@ExAMPle.CoM" }
 
     it "should be saved as all lower-case" do

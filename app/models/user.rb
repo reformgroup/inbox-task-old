@@ -127,18 +127,29 @@ class User < ActiveRecord::Base
     update_attribute :remember_digest, nil
   end
   
-  # Returns short user name like "Fred S."
+  # Returns short user name like "Konstantin K."
   def short_name
     "#{self.first_name} #{self.last_name[0]}."
   end
   
-  # Returns full user name like "Fred Smitt"
+  # Returns nornmal user name like "Konstantin Konstantinopolsky"
+  def nornmal_name
+    "#{self.first_name} #{self.last_name}"
+  end
+  
+  # Returns full user name like "Konstantin Konstantinopolsky Konstantinovich"
   def full_name(options = {})
+    
     options[:middle_name]     ||= true
     options[:last_name_first] ||= true
     name = "#{self.first_name}"
     name << " #{self.middle_name}" if options[:middle_name] && middle_name
     options[:last_name_first] ? "#{self.last_name} #{name}" : "#{name} #{self.last_name}"
+  end
+  
+  # Returns default format user name like "Konstantin Konstantinopolsky"
+  def name
+    nornmal_name
   end
   
   # Save and returns new random password.

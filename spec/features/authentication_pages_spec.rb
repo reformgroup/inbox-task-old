@@ -8,7 +8,7 @@ RSpec.feature "authentication pages", type: :features do
   scenario "login page" do
     visit login_path
 
-    expect(page).to have_link("Вход")
+    expect(page).to have_link("Войти")
     expect(page).to have_title(full_title("Вход"))
   end
   
@@ -28,7 +28,7 @@ RSpec.feature "authentication pages", type: :features do
     
       visit login_path
       
-      create_login_admin
+      create_login_user
       
       expect(page).to have_link(("Выйти"))
     end

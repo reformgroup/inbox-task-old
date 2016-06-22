@@ -2,11 +2,11 @@
   <td>
     <div class="row">
       <div class="col-xs-4 col-md-4">
-        <%= link_to company.name, company_path(company) %>
+        <%= link_to item.name, company_path(item) %>
       </div>
       <div class="col-xs-3 hidden-md-down pull-right">
         <div class="pull-right">
-          <%= time_ago_tag company.created_at %>
+          <%= time_ago_tag item.created_at %>
         </div>
       </div>
     </div>

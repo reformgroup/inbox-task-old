@@ -23,8 +23,4 @@ module CssSpecHelper
   def li_danger_css
     "li.text-danger"
   end
-  
-  def field_with_errors_css
-    "div.field_with_errors"
-  end
 end
