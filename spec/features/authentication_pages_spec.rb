@@ -5,11 +5,14 @@ include SessionsSpecHelper
 
 RSpec.feature "authentication pages", type: :features do
   
+  let(:login_button) { "Войти" }
+  let(:login_title) { "Вход" }
+  
   scenario "login page" do
     visit login_path
 
-    expect(page).to have_link("Войти")
-    expect(page).to have_title(full_title("Вход"))
+    expect(page).to have_link(login_button)
+    expect(page).to have_title(full_title(login_title))
   end
   
   context "login" do
@@ -18,9 +21,9 @@ RSpec.feature "authentication pages", type: :features do
     
       visit login_path
       
-      click_button "Войти"
+      click_button login_button
       
-      expect(page).to have_title(full_title("Вход"))
+      expect(page).to have_title(full_title(login_title))
       expect(page).to have_selector(alert_danger_css)
     end
     
@@ -30,7 +33,7 @@ RSpec.feature "authentication pages", type: :features do
       
       create_login_user
       
-      expect(page).to have_link(("Выйти"))
+      expect(page).to have_link((login_button))
     end
   end
 end
