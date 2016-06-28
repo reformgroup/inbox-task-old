@@ -1,18 +1,18 @@
 <tr>
   <td>
-    <div class="row">
-      <div class="col-xs-4 col-md-4 text-clip">
-        <%= image_tag item.avatar.url(:medium), class: "img-circle avatar avatar-medium" %>
+    <div class='row'>
+      <div class='col-xs-4 col-md-4 text-clip'>
+        <%= image_tag item.avatar.url(:medium), class: 'img-circle avatar avatar-medium' %>
         <%= link_to item.name, user_path(item) %>
       </div>
-      <div class="col-xs-4 text-clip">
-        <span data-toggle="tooltip" data-placement="top" title="<%= item.email %>"><%= item.email %></span>
+      <div class='col-xs-4 text-clip'>
+        <span data-toggle='tooltip' data-placement='top' title='<%= item.email %>'><%= item.email %></span>
       </div>
 
-      <div class="col-xs-2 hidden-md-down text-clip">
+      <div class='col-xs-2 hidden-md-down text-clip'>
         <%= item.role %>
       </div>
-      <div class="col-xs-2 hidden-md-down small text-muted text-clip">
+      <div class='col-xs-2 hidden-md-down small text-muted text-clip'>
         <%= time_ago_tag item.created_at %>
       </div>
     </div>

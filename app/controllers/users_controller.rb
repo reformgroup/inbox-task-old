@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
   
   before_action :logged_in_user
+  # TODO: This will check current role
   # before_action :correct_role
   
-  layout "sidebar"
+  layout 'sidebar'
   
   def index
     @users = User.search(params[:search], :last_name, :first_name, :middle_name, :email).sort(params[:sort], params[:direction]).paginate(page: params[:page])
   end
   
   def show
-    @user = User.find params[:id]
+    @user = User.find(params[:id])
   end
   
   def new
@@ -18,40 +19,41 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find params[:id]
+    @user = User.find(params[:id])
   end
   
   def create
-    @user = User.new user_params
+    @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = t ".flash.success.message"
+      flash[:success] = t('.flash.success.message')
       redirect_to @user
     else
-      render "new"
+      render 'new'
     end
   end
   
   def update
     @user = User.find params[:id]
     if @user.update_attributes main_user_params
-      flash[:success] = t ".flash.success.message"
+      flash[:success] = t('.flash.success.message')
       redirect_to @user
     else
-      render "edit"
+      render 'edit'
     end
   end
   
   def destroy
     @user = User.find params[:id]
     if @user.destroy
-      flash[:success] = t ".flash.success.message"
+      flash[:success] = t('.flash.success.message')
       redirect_to users_path
     end
   end
   
   private
-
+  
+  # HACK: To check how to correctly specify different params
   # All params
   def user_params
     params.require(:user).permit( :last_name, 
@@ -79,10 +81,9 @@ class UsersController < ApplicationController
   end
   
   # Before filters
-
   # Confirms the correct role.
   def correct_role
-    not_found unless current_role? "admin"
+    not_found unless current_role? 'admin'
   end
 
   # Confirms the correct user.

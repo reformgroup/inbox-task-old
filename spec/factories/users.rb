@@ -28,31 +28,31 @@ FactoryGirl.define do
   factory :user do
     last_name { Faker::Name.last_name }
     first_name { Faker::Name.first_name }
-    middle_name "Konstantinovich"
+    middle_name 'Konstantinovich'
     email { Faker::Internet.email }
     birth_date { 18.years.ago - Faker::Number.number(3).to_i.days }
-    gender "male"
-    password "foobar"
-    password_confirmation "foobar"
-    role "user"
+    gender 'male'
+    password 'foobar'
+    password_confirmation 'foobar'
+    role 'user'
     
     factory :admin do
-      role "admin"
+      role 'admin'
     end
     
     factory :superadmin do
-      role "superadmin"
+      role 'superadmin'
     end
     
     factory :me do
-      last_name "Константинопольский"
-      first_name "Константин"
-      middle_name "Константинович"
-      email "test@mail.com"
-      gender "male"
-      password "123123"
-      password_confirmation "123123"
-      role "superadmin"
+      last_name 'Константинопольский'
+      first_name 'Константин'
+      middle_name 'Константинович'
+      email 'test@mail.com'
+      gender 'male'
+      password '123123'
+      password_confirmation '123123'
+      role 'superadmin'
       avatar { process_uri(Faker::Avatar.image) }
     end
   end

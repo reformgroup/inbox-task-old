@@ -1,12 +1,12 @@
 <% provide :title, @company.name %>
 
-<p><%= t ".title" %></p>
+<p><%= t '.title' %></p>
 
-<div class="card card-full card-content">
-  <div class="card-block">
-    <div class="row">
+<div class='card card-full card-content'>
+  <div class='card-block'>
+    <div class='row'>
       <%= form_for(@company) do |f| %>
-        <%= render "company", f: f %>
+        <%= render 'company', f: f %>
       <% end %>
     </div><!-- /.row -->
   </div><!-- /.card-block -->

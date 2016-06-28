@@ -3,37 +3,29 @@ include ApplicationHelper
 include CssSpecHelper
 include SessionsSpecHelper
 
-RSpec.feature "authentication pages", type: :features do
+RSpec.feature 'authentication pages', type: :features do
+  let(:login_title) { 'Вход' }
+  let(:login_button) { 'Войти' }
+  let(:logout_button) { 'Выйти' }
   
-  let(:login_button) { "Войти" }
-  let(:login_title) { "Вход" }
+  before { visit login_path }
   
-  scenario "login page" do
-    visit login_path
-
-    expect(page).to have_link(login_button)
-    expect(page).to have_title(full_title(login_title))
+  context 'login page' do  
+    scenario { expect(page).to have_link(login_button) }
+    scenario { expect(page).to have_title(full_title(login_title)) }
   end
-  
-  context "login" do
-  
-    scenario "with invalid information" do
-    
-      visit login_path
+  describe 'login' do
+    context 'with invalid information' do
+      before { click_button login_button }
       
-      click_button login_button
-      
-      expect(page).to have_title(full_title(login_title))
-      expect(page).to have_selector(alert_danger_css)
+      scenario { expect(page).to have_title(full_title(login_title)) }
+      scenario { expect(page).to have_selector(alert_danger_css) }
     end
-    
-    scenario "with valid information" do
-    
-      visit login_path
+    context 'with valid information' do
+      before { create_login_user }
       
-      create_login_user
-      
-      expect(page).to have_link((login_button))
+      scenario { expect(page).not_to have_link((login_button)) }
+      scenario { expect(page).to have_link((logout_button)) }
     end
   end
 end

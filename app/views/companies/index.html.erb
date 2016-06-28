@@ -1,39 +1,39 @@
-<% provide :title, t(".title") %>
+<% provide :title, t('.title') %>
 
-<p><%= t ".title" %></p>
+<p><%= t '.title' %></p>
 
-<div class="card card-full card-content">
-  <div class="card-block">
-    <div class="row">
-      <div class="col-<%= default_grid_system %>-6">
-        <%= search_tag companies_path, id: "search" %>
+<div class='card card-full card-content'>
+  <div class='card-block'>
+    <div class='row'>
+      <div class='col-<%= default_grid_system %>-6'>
+        <%= search_tag companies_path, id: 'search' %>
       </div><!-- /.col -->
-      <div class="col-<%= default_grid_system %>-6">
-        <div class="pull-right">
-          <%= link_to icon(:plus, t(".add_link")), new_company_path, class: "btn btn-secondary" %>
+      <div class='col-<%= default_grid_system %>-6'>
+        <div class='pull-right'>
+          <%= link_to icon(:plus, t('.add_link')), new_company_path, class: 'btn btn-secondary' %>
         </div>
       </div><!-- /.col -->
     </div><!-- /.row -->
-    <div class="row m-t-1 m-b-2">
-      <div class="<%= default_col_class %>">
-        <%= link_sort_tag(:sort, main_class: "default-link-style", selected_in_title: true) do %>
-          <%= option_for_sort(:name, t(".sort_by_name"), default: true) %>
-          <%= option_for_sort(:created_at, t(".sort_by_created_at")) %>
+    <div class='row m-t-1 m-b-2'>
+      <div class='<%= default_col_class %>'>
+        <%= link_sort_tag(:sort, main_class: 'default-link-style', selected_in_title: true) do %>
+          <%= option_for_sort(:name, t('.sort_by_name'), default: true) %>
+          <%= option_for_sort(:created_at, t('.sort_by_created_at')) %>
         <% end %>
       </div><!-- /.col -->
     </div><!-- /.row -->
-    <div class="row">
-      <table class="table v-align">
+    <div class='row'>
+      <table class='table v-align'>
         <tbody>
           <% @companies.each do |company| %>
-            <%= render "item", item: company %>
+            <%= render 'item', item: company %>
           <% end %>
         </tbody>
       </table>
-      <div class="<%= default_col_class %>">
-        <div class="pagination-block">
+      <div class='<%= default_col_class %>'>
+        <div class='pagination-block'>
           <%= will_paginate @companies, inner_window: 2, outer_window: 1 %>
-          <div class="pagination-info text-muted">
+          <div class='pagination-info text-muted'>
             <small><%= page_entries_info @companies, model: Company, html: false %></small>
           </div><!-- /.pagination-info -->
         </div><!-- /.pagination-block -->

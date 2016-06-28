@@ -13,7 +13,7 @@ module Searchable
     #
     def search(query, *colunms)
       return self unless query
-      raise ArgumentError, "Required colunms missing." unless colunms
+      raise ArgumentError, 'Required colunms missing.' unless colunms
       
       query         = normalize_search_query query
       query_str     = String.new
@@ -23,7 +23,7 @@ module Searchable
         query_str = "#{query_str} AND " if i > 0
         query_str_item = String.new
         colunms.each do |c|
-          query_str_item << " OR " unless query_str_item.blank?
+          query_str_item << ' OR ' unless query_str_item.blank?
           query_str_item << "#{c} LIKE ?"
           query_params.push "%#{q}%"
         end
@@ -36,7 +36,7 @@ module Searchable
     private
     
     def normalize_search_query(query)
-      query[0, 50].gsub(/[^[:alpha:][:blank:][:digit:]\-\'\.\_\:]/i, "").gsub(/\s+/i, " ").downcase.split(" ")
+      query[0, 50].gsub(/[^[:alpha:][:blank:][:digit:]\-\'\.\_\:]/i, '').gsub(/\s+/i, ' ').downcase.split(' ')
     end
   end
 end

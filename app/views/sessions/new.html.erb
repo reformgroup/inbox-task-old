@@ -1,28 +1,28 @@
-<% provide :title, t(".title") %>
+<% provide :title, t('.title') %>
 
 
-<div class="col-xl-offset-8 col-md-offset-6 col-xl-4 col-md-6">
-	<div class="card">
-    <div class="card-header">
-      <%= t ".title" %>
+<div class='col-xl-offset-8 col-md-offset-6 col-xl-4 col-md-6'>
+	<div class='card'>
+    <div class='card-header'>
+      <%= t '.title' %>
     </div>
-	  <div class="card-block">
-			<%= form_for(:session, url: sessions_path, html: { class: "form" }) do |f| %>
-				<div class="form-group">
-					<%= f.text_field :email, class: "form-control", placeholder: User.human_attribute_name(:email) %>
+	  <div class='card-block'>
+			<%= form_for(:session, url: sessions_path, html: { class: 'form' }) do |f| %>
+				<div class='form-group'>
+					<%= f.text_field :email, class: 'form-control', placeholder: User.human_attribute_name(:email) %>
 				</div>
-				<div class="form-group">
-					<%= f.password_field :password, class: "form-control", placeholder: User.human_attribute_name(:password) %>
+				<div class='form-group'>
+					<%= f.password_field :password, class: 'form-control', placeholder: User.human_attribute_name(:password) %>
 				</div>
-				<div class="checkbox">
-					<%= f.label :remember_me, class: "checkbox inline" do %>
+				<div class='checkbox'>
+					<%= f.label :remember_me, class: 'checkbox inline' do %>
 						<%= f.check_box :remember_me %>
 						<span><%= User.human_attribute_name(:remember_me) %></span>
 					<% end %>
 				</div>
         <br>
-				<%= f.submit t(".submit"), class: "btn btn-primary" %>
-				<%= link_to t(".forgot_password"), "#", class: "pull-right" %>
+				<%= f.submit t('.submit'), class: 'btn btn-primary' %>
+				<%= link_to t('.forgot_password'), '#', class: 'pull-right' %>
       <% end %>
 		</div>
 	</div>

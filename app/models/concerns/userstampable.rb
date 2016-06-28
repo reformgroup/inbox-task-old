@@ -7,19 +7,19 @@ module Userstampable
     extend ActiveSupport::Concern
     
     included do
-      belongs_to :creator, class_name: "User", foreign_key: :creator_id         
-      belongs_to :updater, class_name: "User", foreign_key: :updater_id
+      belongs_to :creator, class_name: 'User', foreign_key: :creator_id         
+      belongs_to :updater, class_name: 'User', foreign_key: :updater_id
     
       before_create :set_creator_attribute
       before_save   :set_updater_attribute
     end
     
     def set_creator_attribute
-      self.send "creator_id=", User.stamper
+      self.send 'creator_id=', User.stamper
     end
     
     def set_updater_attribute
-      self.send "updater_id=", User.stamper
+      self.send 'updater_id=', User.stamper
     end
   end
   

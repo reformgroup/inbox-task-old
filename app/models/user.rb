@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   VALID_NAME_REGEX  = /(\A\z)|(\A[[:alpha:]]+[[:alpha:] \-']*[[:alpha:]]+\z)/i
-  AVATAR_PATH       = "/system/:class/:attachment/:id_partition/:style"
+  AVATAR_PATH       = '/system/:class/:attachment/:id_partition/:style'
   
   attr_accessor :remember_token
   
@@ -43,12 +43,12 @@ class User < ActiveRecord::Base
   has_secure_password
   has_attached_file :avatar, 
     { 
-      styles: { original: "120x120#", medium: "50x50#", thumb: "38x38#" }, 
-      default_url: "/images/:class/:attachment/:style/missing.png",
+      styles: { original: '120x120#', medium: '50x50#', thumb: '38x38#' }, 
+      default_url: '/images/:class/:attachment/:style/missing.png',
       url: "#{AVATAR_PATH}/:hash.:extension",
       path: ":rails_root/public#{AVATAR_PATH}/:hash.:extension",
       hash_data: AVATAR_PATH,
-      hash_secret: "A13S4Dtu54y5g63d363sa3JH30Ff9dyH56lih6JguyHY736crtyf45dx"
+      hash_secret: 'A13S4Dtu54y5g63d363sa3JH30Ff9dyH56lih6JguyHY736crtyf45dx'
     }
 
   enum gender: [:male, :female, :other]
@@ -175,9 +175,9 @@ class User < ActiveRecord::Base
     if name.blank?
       nil
     else
-      name.gsub!(/^[ -]*|[ -]*$/, "")
-      name.gsub!(/[ ]*[-]{2,}[ ]*/, "-")
-      name.gsub!(/[ ]{2,}/, " ")
+      name.gsub!(/^[ -]*|[ -]*$/, '')
+      name.gsub!(/[ ]*[-]{2,}[ ]*/, '-')
+      name.gsub!(/[ ]{2,}/, ' ')
       name.gsub!(/[[:alpha:]]+/i) { |s| s.capitalize }
     end
   end

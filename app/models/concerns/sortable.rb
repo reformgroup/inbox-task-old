@@ -26,11 +26,11 @@ module Sortable
     end
 
     def sort_direction(direction_param = nil)
-      %w[asc desc].include?(direction_param) ? direction_param : "asc"
+      %w(asc desc).include?(direction_param) ? direction_param : 'asc'
     end
     
     def default_sort_columns
-      ["name", "last_name", "created_at"]
+      %w(name last_name created_at)
     end
   end
 end

@@ -1,28 +1,28 @@
 <% provide :title, @company.name %>
 
-<p><%= t ".title" %></p>
+<p><%= t '.title' %></p>
 
-<div class="card card-full card-content">
-  <div class="card-block">
-    <div class="row">
-      <div class="<%= default_col_class %>">
+<div class='card card-full card-content'>
+  <div class='card-block'>
+    <div class='row'>
+      <div class='<%= default_col_class %>'>
         <h2><%= @company.name %></h2>
       </div><!-- /.col -->
     </div><!-- /.row -->
   </div><!-- /.card-block -->
-  <div class="card-block">
-    <div class="row">
-      <div class="<%= default_mix_small_col_class %>">
-        <span class="text-muted"><%= t("userstamp.creator") %>
+  <div class='card-block'>
+    <div class='row'>
+      <div class='<%= default_mix_small_col_class %>'>
+        <span class='text-muted'><%= t('userstamp.creator') %>
       </div><!-- /.col -->
-      <div class="<%= default_mix_large_col_class %>">
+      <div class='<%= default_mix_large_col_class %>'>
         <%= @company.creator.full_name %>
       </div><!-- /.col -->
     </div><!-- /.row -->
     <hr>
-    <div class="row">
-      <div class="<%= default_col_class %>">
-        <%= link_to icon("pencil", t("buttons.edit")), edit_company_path, { class: "btn btn-primary", role: "button" } %>
+    <div class='row'>
+      <div class='<%= default_col_class %>'>
+        <%= link_to icon('pencil', t('buttons.edit')), edit_company_path, { class: 'btn btn-primary', role: 'button' } %>
       </div><!-- /.col -->
     </div><!-- /.row -->
   </div><!-- /.card-block -->

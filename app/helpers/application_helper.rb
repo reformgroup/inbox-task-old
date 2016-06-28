@@ -1,7 +1,7 @@
 module ApplicationHelper
   
-  LOCALE_LIST = { en: "English", ru: "Русский" }
-  APP_NAME = "Task trace"
+  LOCALE_LIST = { en: 'English', ru: 'Русский' }
+  APP_NAME = 'Inbox task'
   
   def current_locale_name
     LOCALE_LIST[I18n.locale]
@@ -38,19 +38,23 @@ module ApplicationHelper
     return unless from_time
     
     options                   ||= {}
-    options["data-toggle"]    ||= "tooltip"
-    options["data-placement"] ||= "top"
+    options['data-toggle']    ||= 'tooltip'
+    options['data-placement'] ||= 'top'
     options[:title]           ||= l(from_time, format: :long)
     
     content_tag(:span, "#{time_ago_in_words(from_time)} #{t('ago')}", options) 
   end
   
   def not_found
-    raise ActionController::RoutingError.new "Not Found"
+    raise ActionController::RoutingError.new 'Not Found'
   end
   
   def default_grid_system
-    "xl"
+    'xl'
+  end
+  
+  def medium_grid_system
+    'ld'
   end
 
   def default_col_class
@@ -70,11 +74,11 @@ module ApplicationHelper
   end
   
   def default_mix_small_col_class
-    "col-lg-3 col-xl-2"
+    "col-#{medium_grid_system}-3 col-#{default_grid_system}-2"
   end
   
   def default_mix_large_col_class
-    "col-lg-9 col-xl-10"
+    "col-#{medium_grid_system}-9 col-#{default_grid_system}-10"
   end
   
   def error_messages(object, method = nil)
@@ -89,19 +93,20 @@ module ApplicationHelper
     if error_arr.any?
       error_content = String.new
       content_tag(:ui) do
-        error_arr.each { |msg| error_content << content_tag(:li, msg, class: "text-danger") }
+        error_arr.each { |msg| error_content << content_tag(:li, msg, class: 'text-danger') }
       end
       error_content.html_safe
     end
   end
   
+  # HACK: Delete if not used
   def nav_link_to(link_text, link_path)
     options = {}
-    options[:class] = "nav-item" 
-    if request.path == link_path.split("?")[0]
-      options[:class] << " active" 
+    options[:class] = 'nav-item'
+    if request.path == link_path.split('?')[0]
+      options[:class] << ' active'
       link_text << " <span class=""sr-only"">(current)</span>"
     end
-    content_tag(:li, options) { link_to link_text.html_safe, link_path, class: "nav-link" }
+    content_tag(:li, options) { link_to(link_text.html_safe, link_path, class: 'nav-link') }
   end
 end

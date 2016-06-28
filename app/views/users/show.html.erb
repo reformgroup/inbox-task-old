@@ -1,45 +1,45 @@
 <% provide :title, @user.short_name %>
 
-<p><%= t ".title" %></p>
+<p><%= t '.title' %></p>
 
-<div class="card card-full card-content">
-  <div class="card-block">
-    <div class="row">
-      <div class="<%= default_col_class %>">
-        <div class="text-center">
-          <%= image_tag @user.avatar.url, class: "img-circle avatar avatar-original center-block" %>
+<div class='card card-full card-content'>
+  <div class='card-block'>
+    <div class='row'>
+      <div class='<%= default_col_class %>'>
+        <div class='text-center'>
+          <%= image_tag @user.avatar.url, class: 'img-circle avatar avatar-original center-block' %>
         </div>
-        <h2 class="text-xs-center"><%= @user.name %></h2>
+        <h2 class='text-xs-center'><%= @user.name %></h2>
       </div><!-- /.col -->
     </div><!-- /.row -->
-    <div class="row">
-      <div class="<%= default_mix_small_col_class %>">
-        <span class="text-muted"><%= User.human_attribute_name "email" %>
+    <div class='row'>
+      <div class='<%= default_mix_small_col_class %>'>
+        <span class='text-muted'><%= User.human_attribute_name 'email' %>
       </div><!-- /.col -->
-      <div class="<%= default_mix_large_col_class %>">
+      <div class='<%= default_mix_large_col_class %>'>
         <%= mail_to @user.email, nil, subject: app_name %>
       </div><!-- /.col -->
     </div><!-- /.row -->
-    <div class="row">
-      <div class="<%= default_mix_small_col_class %>">
-        <span class="text-muted"><%= User.human_attribute_name "birth_date" %>
+    <div class='row'>
+      <div class='<%= default_mix_small_col_class %>'>
+        <span class='text-muted'><%= User.human_attribute_name 'birth_date' %>
       </div><!-- /.col -->
-      <div class="<%= default_mix_large_col_class %>">
+      <div class='<%= default_mix_large_col_class %>'>
         <%= l @user.birth_date %> (<%= @user.age %>)
       </div><!-- /.col -->
     </div><!-- /.row -->
-    <div class="row">
-      <div class="<%= default_mix_small_col_class %>">
-        <span class="text-muted"><%= User.human_attribute_name "gender" %>
+    <div class='row'>
+      <div class='<%= default_mix_small_col_class %>'>
+        <span class='text-muted'><%= User.human_attribute_name 'gender' %>
       </div><!-- /.col -->
-      <div class="<%= default_mix_large_col_class %>">
+      <div class='<%= default_mix_large_col_class %>'>
         <%= User.human_attribute_name "gender.#{@user.gender}"%>
       </div><!-- /.col -->
     </div><!-- /.row -->
     <hr>
-    <div class="row">
-      <div class="<%= default_col_class %>">
-        <%= link_to icon("pencil", t("buttons.edit")), edit_user_path, { class: "btn btn-primary", role: "button" } %>
+    <div class='row'>
+      <div class='<%= default_col_class %>'>
+        <%= link_to icon('pencil', t('buttons.edit')), edit_user_path, { class: 'btn btn-primary', role: 'button' } %>
       </div><!-- /.col -->
     </div><!-- /.row -->
   </div><!-- /.card-block -->
