@@ -65,6 +65,8 @@ ru:
       title: "Workspace"
       profile: "Мой профиль"
       users: "Пользователи"
+      companies: "Компании"
+      teams: "Команды"
     user_menu:
       logout: "Выйти"
   users:
@@ -82,7 +84,7 @@ ru:
       title: "Новый пользователь"
     edit:
       title: "Редактирование профиля пользователя"
-    user:
+    form:
       confirm:
         delete:
           button: "Удалить пользователя"
@@ -105,7 +107,7 @@ ru:
       title: "Новая компания"
     edit:
       title: "Редактирование профиля компании"
-    company:
+    form:
       confirm:
         delete:
           button: "Удалить компанию"

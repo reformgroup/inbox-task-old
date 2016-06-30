@@ -1,0 +1,23 @@
+<div class='<%= default_col_class %>'>
+  <div class='form-group row'>
+    <%= f.label :name, class: "#{default_mix_small_col_class} form-control-label" %>
+    <div class='<%= default_mix_large_col_class %>'>
+      <%= f.text_field :name, class: 'form-control' %>
+      <%= error_messages f.object, :name %>
+    </div>
+  </div>
+</div><!-- /.col -->
+<div class='<%= default_col_class %>'>
+  <hr>
+  <button class='btn btn-primary' type='submit'><%= icon 'floppy-o', t('buttons.save') %></button>
+  <% if action_name == 'edit' %>
+    <button type='button' class='btn btn-danger-outline' data-toggle='modal' data-target='#modal'>
+      <%= icon 'trash-o', t('.confirm.delete.button') %>
+    </button>
+    <%= render partial: 'layouts/modal', locals: {  
+    title: t('.confirm.delete.title'),
+    body: t('.confirm.delete.body'),
+    ok_link: link_to(t('buttons.delete'), team_path(@team), method: :delete, class: 'btn btn-danger'),
+    cancel_link_text: t('buttons.cancel') } %>
+  <% end %>
+</div><!-- /.col -->

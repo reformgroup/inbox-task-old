@@ -4,10 +4,13 @@
       <a href='#'><%= t '.title' %></a>
     </li>
     <li>
-      <%= link_to icon('users', 'Users', class: 'fa-fw'), users_path %>
+      <%= link_to icon('briefcase', t('.companies'), class: 'fa-fw'), companies_path %>
     </li>
     <li>
-      <%= link_to icon('briefcase', 'Companies', class: 'fa-fw'), companies_path %>
+      <%= link_to icon('users', t('.teams'), class: 'fa-fw'), teams_path %>
+    </li>
+    <li>
+      <%= link_to icon('user', t('.users'), class: 'fa-fw'), users_path %>
     </li>
   </ul>
 </div>

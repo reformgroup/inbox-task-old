@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <div class='row'>
+      <div class='col-xs-4 col-md-4'>
+        <%= link_to item.name, team_path(item) %>
+      </div>
+      <div class='col-xs-3 hidden-md-down pull-right'>
+        <div class='pull-right'>
+          <%= time_ago_tag team.created_at %>
+        </div>
+      </div>
+    </div>
+  </td>
+</tr>

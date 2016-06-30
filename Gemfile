@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ancestry'
 gem 'bcrypt',                 '~> 3.1.10'
 gem 'bootstrap',              '~> 4.0.0.alpha3'
 gem 'coffee-rails',           '~> 4.1.0'

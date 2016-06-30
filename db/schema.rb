@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611113049) do
+ActiveRecord::Schema.define(version: 20160630051037) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(version: 20160611113049) do
   add_index "companies", ["creator_id"], name: "index_companies_on_creator_id"
   add_index "companies", ["deleter_id"], name: "index_companies_on_deleter_id"
   add_index "companies", ["updater_id"], name: "index_companies_on_updater_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.integer  "deleter_id"
+  end
+
+  add_index "teams", ["creator_id"], name: "index_teams_on_creator_id"
+  add_index "teams", ["deleter_id"], name: "index_teams_on_deleter_id"
+  add_index "teams", ["updater_id"], name: "index_teams_on_updater_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "last_name",           null: false
